@@ -20,8 +20,33 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  // Function to increase item quantity
+  const increaseQuantity = (id) => {
+    setCartItems(prevItems =>
+      prevItems.map(item =>
+        item.id === id ? { ...item, count: item.count + 1 } : item
+      )
+    );
+  };
+
+  // Function to decrease item quantity
+  const decreaseQuantity = (id) => {
+    setCartItems(prevItems =>
+      prevItems
+        .map(item =>
+          item.id === id ? { ...item, count: item.count - 1 } : item
+        )
+        .filter(item => item.count > 0)
+    );
+  };
+
+  // Function to remove item
+  const removeFromCart = (id) => {
+    setCartItems(prevItems => prevItems.filter(item => item.id !== id));
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, setCartItems, addToCart }}>
+    <CartContext.Provider value={{ cartItems, setCartItems, addToCart, increaseQuantity, decreaseQuantity, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );
