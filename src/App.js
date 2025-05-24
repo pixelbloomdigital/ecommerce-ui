@@ -1,46 +1,9 @@
-
-
-
-// import React from 'react';
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import Home from './Screens/Home';
-// import CartPage from './Screens/CartPage';
-// import { CartProvider } from './context/CartContext';
-
-// const App = () => {
-//   return (
-//     <Router>
-//       <CartProvider>
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="/cart" element={<CartPage />} />
-
-//            </Routes>
-//       </CartProvider>
-//     </Router>
-//   );
-// };
-
-// export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Screens/Home';
 import CartPage from './Screens/CartPage';
 import { CartProvider } from './context/CartContext';
+import Contact from './Screens/Contact';
 
 const App = () => {
   return (
@@ -49,6 +12,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Router>
     </CartProvider>
